@@ -10,40 +10,11 @@ Created on Sat Oct 27 00:22:07 2018
 from imutils.video import VideoStream
 from pyzbar import pyzbar
 import argparse
-#import datetime
 import imutils
 import time
 #import serial
 import cv2
 import numpy as np
-
-#def barcode():
-    
-#    Arduinouno_Serial = serial.Serial('COM7',9600)
-    
-#    vs = VideoStream(0).start()
-#    time.sleep(2.0)
-
-#    frame = vs.read()
-#    frame= imutils.resize(frame, width = 600)
-    
-    
-#    for barcode in barcodes:
-#         (x, y, w, h) = barcode.rect
-#         cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 0, 255), 2)
-         
-#         barcodeData = barcode.data.decode("utf-8")
-#         print("barcodes: ", barcodeData)
-         
-#         for i in range(1):
-#             Arduinouno_Serial.write('0'.encode())
-#             time.sleep(2.0)
-         
-#         if barcodeData not in found:
-#             csv.write("{},{}\n".format(datetime.datetime.now(), barcodeData))
-#             csv.flush()
-#             found.add(barcodeData)
-
 
 def main():
     
@@ -56,9 +27,6 @@ def main():
     #args = vars(ap.parse_args())
     
     print("[INFO] starting video stream...")
-    
-    #vs = VideoStream(0).start()
-    
     
     vs = VideoStream(0).start()
     time.sleep(2.0)
@@ -77,19 +45,13 @@ def main():
     x2=320
     y1=240
     y2=260
-    #cap.set(3,w)
-    #cap.set(4,h)
-    #if cap.isOpened():
-    #    ret, frame = cap.read()
-    #else:
-    #    ret = False
     
-    
-        
+       
     while True:
         frame = vs.read()
         frame_org = frame
         frame = imutils.resize(frame, width = 600)
+        #or
         #scale_percent = 60
         #width = int(frame.shape[1] * scale_percent / 100)
         #height = int(frame.shape[0] * scale_percent / 100)
@@ -162,7 +124,8 @@ def main():
         image_mask = cv2.inRange(hsv, low, high)
         
         image_mask_black = image_mask_ - image_mask
-#try to make more precise
+
+        #try to make more precise
         #output_red1 = cv2.bitwise_and(frame, frame, mask = image_mask_red1)
         #output_red2 = cv2.bitwise_and(frame, frame, mask = image_mask_red2)
         #output_blue = cv2.bitwise_and(frame, frame, mask = image_mask_blue)
@@ -175,7 +138,8 @@ def main():
         #    print("Red_light_range")
         #elif output_red2.any() == True:
         #    print("Red_dark_range")
-# a little confusinon b/w running &, or in the code
+
+        # a little confusinon b/w running &, or in the code
         
         #barcode()
         
