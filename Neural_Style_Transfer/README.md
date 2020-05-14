@@ -19,7 +19,7 @@ Content Image:
 ![](disp_images/content_image.jpg)
 
 
-Style Iamge:
+Style Image:
 
 ![](disp_images/style_image.jpg)
 
