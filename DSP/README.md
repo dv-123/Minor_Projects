@@ -10,14 +10,15 @@ The circular convolution, also known as cyclic convolution, of two aperiodic fun
 # AIM:  Write a MATLAB program to find DFT & IDFT of a discrete signal using FFT algorithm. 
 # THEORY:
 A fast Fourier transform (FFT) is an algorithm that computes the discrete Fourier transform (DFT) of a sequence, or its inverse (IDFT). Fourier analysis converts a signal from its original domain (often time or space) to a representation in the frequency domain and vice versa. Some of the important applications of the FFT include: Fast largeinteger and polynomial multiplication. Efficient matrix-vector multiplication for Toeplitz, circulant and other structured matrices. Filtering algorithms (see overlap-add and overlap-save methods). 
- (image)
- (imiage)
- (image)
+ 
+(image)
+(image)
  
  # AIM: Write a MATLAB program to find the Z-transform of various standard discrete signals.
  # THEORY:
 In mathematics and signal processing, the Z-transform converts a discrete time signal, which is a sequence of real or complex numbers, into a complex frequencydomain representation. It can be considered as a discrete-time equivalent of the Laplace transform. The Z-transform can be defined as either a one-sided or two-sided transform. 
  
+(image)
 (image)
 (image)
 (image)
