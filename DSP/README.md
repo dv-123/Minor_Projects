@@ -39,7 +39,7 @@ The Butterworth filter is a type of signal processing filter designed to have a 
 (image)
 (image)
 
-# CREDITS
+# CREDITS -->
 # The project is the combined effort of:
 # DEEP RANJAN(17MI416)
 # HARIT YADAV(17MI418) 
