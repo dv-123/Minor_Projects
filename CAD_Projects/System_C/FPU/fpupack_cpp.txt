@@ -1,0 +1,38 @@
+#include "systemc.h"
+#include "fpupack.h"
+
+// Processes
+
+// count the zeros starting from left
+void COUNT_L_ZEROS::count_l_zeros(void) {
+
+    s_vector_data = s_vector.read();
+
+    // wait for next event
+    //wait();
+    // use above code when the clock will be integrated
+
+    for (int i = 0; i < 31; i++) {
+        if (s_vector_data[i] == 0) {
+            v_count_temp = v_count_temp + 1;
+        }
+    }
+
+    v_count.write(v_count_temp);
+
+}
+
+// count the zeros starting from right
+void COUNT_R_ZEROS::count_r_zeros(void) {
+
+    s_vector_data = s_vector.read();
+
+    for (int i = 30; i >= 0; i--) {
+        if (s_vector[i] == 0) {
+            v_count_temp = v_count_temp + 1;
+        }
+    }
+
+    v_count.write(v_count_temp);
+
+}

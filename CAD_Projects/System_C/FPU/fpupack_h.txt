@@ -1,0 +1,91 @@
+#ifndef FPUPACK_H_INCLUDED
+#define FPUPACK_H_INCLUDED
+
+#include "systemc.h"
+
+class CONSTANT_DATA :
+    public sc_module {
+
+public:
+
+    // Data width of floating-point number, Default: 32
+    const int FP_WIDTH = 32;
+
+    // Data width of fraction, Default: 23
+    const int FRAC_WIDTH = 23;
+
+    // Data width of exponent, Default: 8
+    const int EXP_WIDTH = 8;
+
+    // zero vector also can use sc_bv if required
+    const sc_uint<31> ZERO_VECTOR = "0000000000000000000000000000000";
+
+    // Infinity FP format
+    const sc_uint<31> INF = "1111111100000000000000000000000";
+
+    // QNaN (Quit Not a Number) FP format (without sign bit)
+    const sc_uint<31> QNAN = "1111111110000000000000000000000";
+
+    // SNaN (Signal Not a Number) FP format (without sign bit)
+    const sc_uint<31> SNAN = "1111111100000000000000000000001";
+
+};
+
+class COUNT_L_ZEROS :
+    public sc_module {
+
+public:
+
+    // ports
+    sc_in < sc_uint<31> >        s_vector; // input signal
+    sc_out < sc_uint<6> >       v_count; // output 
+
+    //sc_in < bool > clk;     //Clock
+
+    // count the zeros starting from left
+    void count_l_zeros(void);
+
+    // internal data
+    sc_uint < 31 > s_vector_data;
+    sc_uint < 6 > v_count_temp = 0; //initial condition
+
+    // Module constructor
+    SC_HAS_PROCESS(COUNT_L_ZEROS);
+    COUNT_L_ZEROS(sc_module_name name) :
+        sc_module(name) {
+        SC_THREAD(count_l_zeros);
+        sensitive << s_vector;
+    }
+
+};
+
+class COUNT_R_ZEROS :
+    public sc_module {
+
+public:
+
+    // ports
+    sc_in < sc_uint<31> >        s_vector;   // input signal
+    sc_out < sc_uint<6> >       v_count;  // output 
+
+    //sc_in < bool > clk      //Clock
+
+    // count the zeros strating from right
+    void count_r_zeros(void);
+
+    // internal data
+    sc_uint < 31 > s_vector_data;
+    sc_uint < 6 > v_count_temp = 0; //initial condition
+
+    // Module constructor
+    SC_HAS_PROCESS(COUNT_R_ZEROS);
+    COUNT_R_ZEROS(sc_module_name name) :
+        sc_module(name) {
+        SC_THREAD(count_r_zeros);
+        sensitive << s_vector;
+    }
+
+};
+
+#endif
+#pragma once
