@@ -5,4 +5,4 @@ The hardware and its finctionality implemented is:
 
 ![](Subscalar_Adder.PNG)
 
-"Note: This project is for understanding purpose only and does not belong to me completely."
+"Note: This project is for learning purpose only and does not belong to me completely."
